@@ -77,7 +77,7 @@ const AcademicsPage = () => {
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="font-heading text-3xl font-bold text-foreground mb-6">Our Curriculum</h2>
           <p className="text-muted-foreground leading-relaxed">
-            AL-IHSAN SCHOOLS follows the Kenyan Competency-Based Curriculum (CBC) for primary and junior secondary,
+            AL-IHSAN SCHOOLS Township follows the Kenyan Competency-Based Curriculum (CBC) for primary and junior secondary,
             and the national senior secondary curriculum. Our academic programs are enriched with Islamic education,
             ensuring a holistic approach to learning that develops both the mind and character.
           </p>

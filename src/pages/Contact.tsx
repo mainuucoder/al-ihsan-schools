@@ -29,8 +29,8 @@ const ContactPage = () => {
             <div className="space-y-4">
               {[
                 { icon: MapPin, label: "Location", value: "Garissa, Kenya" },
-                { icon: Phone, label: "Phone", value: "+254 700 000 000" },
-                { icon: Mail, label: "Email", value: "info@alihsanschools.ac.ke" },
+                { icon: Phone, label: "Phone", value: "+254 721903982" },
+                { icon: Mail, label: "Email", value: "Alihsanschools2022@gmail.com" },
                 { icon: Clock, label: "Office Hours", value: "Mon–Fri: 7:00 AM – 5:00 PM" },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-3">

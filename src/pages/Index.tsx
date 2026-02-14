@@ -63,7 +63,7 @@ const HomePage = () => {
               {/* School Name - Centered on mobile */}
               <div className="text-center sm:text-left animate-slide-in-right">
                 <h2 className="font-heading text-2xl sm:text-3xl md:text-3xl font-bold text-primary-foreground leading-tight">
-                  AL-IHSAN SCHOOLS
+                  AL-IHSAN SCHOOLS TOWNSHIP
                 </h2>
                 <p className="text-xs sm:text-sm text-primary-foreground/70">
                   Garissa, Kenya
@@ -114,7 +114,7 @@ const HomePage = () => {
               <br />
               <span className="relative inline-block mt-1 sm:mt-2 overflow-hidden">
                 <span className="text-gradient-gold inline-block animate-[slide-in-right_0.8s_ease-out_1s_forwards,horizontal-shake_4s_ease-in-out_1.5s_infinite] opacity-0 [animation-fill-mode:forwards] text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                  AL-IHSAN SCHOOLS
+                  AL-IHSAN SCHOOLS TOWNSHIP
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[horizontal-shine_3s_ease-in-out_1.5s_infinite] pointer-events-none" />
                 <span className="absolute -top-2 -right-2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gold-light/50 rounded-full animate-[horizontal-float_3s_ease-in-out_infinite]" />
@@ -194,7 +194,7 @@ const HomePage = () => {
               
               <div className="text-center sm:text-left">
                 <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 sm:mb-2">
-                  AL-IHSAN SCHOOLS
+                  AL-IHSAN SCHOOLS TOWNSHIP
                 </h3>
                 <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-2">
                   <div className="flex items-center gap-2">
@@ -393,7 +393,7 @@ const HomePage = () => {
               Shaping Tomorrow's Leaders
             </h2>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed px-2 sm:px-0">
-              AL-IHSAN SCHOOLS is a premier educational institution in Garissa, Kenya, offering a harmonious
+              AL-IHSAN SCHOOLS TOWNSHIP is a premier educational institution in Garissa, Kenya, offering a harmonious
               blend of formal academic education and comprehensive Islamic studies. We believe in nurturing
               well-rounded students who excel academically while grounded in strong moral and Islamic values.
             </p>
@@ -443,7 +443,7 @@ const HomePage = () => {
                       <span className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold">MD</span>
                     </div>
                     <h3 className="font-heading text-lg sm:text-xl font-bold">Managing Director</h3>
-                    <p className="text-primary-foreground/80 text-xs sm:text-sm mt-1">AL-IHSAN Schools</p>
+                    <p className="text-primary-foreground/80 text-xs sm:text-sm mt-1">AL-IHSAN Schools Township</p>
                   </div>
                 </div>
                 <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 gold-gradient rounded-xl flex items-center justify-center shadow-lg">
@@ -466,7 +466,7 @@ const HomePage = () => {
                 </blockquote>
                 <div className="border-l-4 border-primary pl-3 sm:pl-4 text-left">
                   <p className="font-semibold text-foreground text-base sm:text-lg">The Managing Director</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground">AL-IHSAN Schools, Garissa</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">AL-IHSAN Schools Township, Garissa</p>
                   <p className="text-xs sm:text-sm text-muted-foreground font-semibold">MR. ABDIRIZAK HAWADLE</p>
                 </div>
                 <Link

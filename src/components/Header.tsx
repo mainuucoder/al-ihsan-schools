@@ -27,6 +27,7 @@ const Header = () => {
           <div>
             <span className="font-heading text-lg md:text-xl font-bold text-primary">AL-IHSAN</span>
             <span className="hidden sm:inline font-heading text-lg md:text-xl font-bold text-secondary"> SCHOOLS</span>
+            <span className="hidden sm:inline font-heading text-lg md:text-xl font-bold text-primary"> TOWNSHIP</span>
           </div>
         </Link>
 

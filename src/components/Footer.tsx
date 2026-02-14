@@ -12,7 +12,7 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
                 <BookOpen className="w-5 h-5" />
               </div>
-              <span className="font-heading text-xl font-bold">AL-IHSAN SCHOOLS</span>
+              <span className="font-heading text-xl font-bold">AL-IHSAN SCHOOLS TOWNSHIP</span>
             </div>
             <p className="text-sm italic text-primary-foreground/80 mb-4">
               "THE HARDER WE WORK THE SMARTER WE GET"

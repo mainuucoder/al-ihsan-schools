@@ -42,7 +42,7 @@ const AboutPage = () => {
           </div>
           
           <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2">
-            About AL-IHSAN Schools
+            About AL-IHSAN Schools Township
           </h1>
           <p className="text-primary-foreground/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
             Building a legacy of knowledge, discipline, and faith in Garissa, Kenya.
@@ -87,7 +87,7 @@ const AboutPage = () => {
                 Established 2008
               </div> */}
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-4">
-                AL-IHSAN SCHOOLS
+                AL-IHSAN SCHOOLS TOWNSHIP
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground mb-3 sm:mb-4">
                 Garissa, Kenya
@@ -115,7 +115,7 @@ const AboutPage = () => {
             Our Story
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
-            AL-IHSAN SCHOOLS was established with the vision of providing quality education that combines
+            AL-IHSAN SCHOOLS Township was established with the vision of providing quality education that combines
             the best of modern academics with the richness of Islamic teachings. Located in the heart of
             Garissa, Kenya, our institution has grown to become one of the most trusted schools in the region.
           </p>
@@ -198,7 +198,7 @@ const AboutPage = () => {
                 <span className="font-heading text-lg sm:text-xl md:text-2xl font-bold text-primary-foreground">AH</span>
               </div>
               <p className="font-semibold text-foreground text-base sm:text-lg">MR. ABDIRIZAK HAWADLE</p>
-              <p className="text-xs sm:text-sm text-muted-foreground">Managing Director, AL-IHSAN SCHOOLS</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Managing Director, AL-IHSAN SCHOOLS TOWNSHIP</p>
             </div>
           </div>
         </div>
