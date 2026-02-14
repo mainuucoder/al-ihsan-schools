@@ -100,7 +100,7 @@ const AboutPage = () => {
                   Islamic Curriculum
                 </span>
                 <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-50 text-blue-700 rounded-full text-xs sm:text-sm font-medium">
-                  Pre-primary to Senior
+                  Pre-primary to Senior School
                 </span>
               </div>
             </div>
