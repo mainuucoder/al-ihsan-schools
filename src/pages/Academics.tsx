@@ -3,7 +3,7 @@ import { GraduationCap, BookOpen, Users, Award } from "lucide-react";
 const programs = [
   {
     icon: Users,
-    title: "Kindergarten",
+    title: "Pre-Primary School",
     description: "A nurturing environment for early learners with play-based and structured activities.",
     subjects: ["Literacy", "Numeracy", "Creative Arts", "Social Skills", "Basic Islamic Studies"],
   },
@@ -21,9 +21,9 @@ const programs = [
   },
   {
     icon: Award,
-    title: "Secondary School",
-    description: "Comprehensive secondary education with a focus on academic excellence and character.",
-    subjects: ["Mathematics", "Sciences", "Languages", "Humanities", "Business Studies", "Islamic Studies", "Computer Studies"],
+    title: "Senior School",
+    description: "COMING SOON!!!",
+    subjects: ["COMING SOON!!!"],
   },
 ];
 
@@ -34,7 +34,7 @@ const AcademicsPage = () => {
         <div className="container mx-auto">
           <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">Academics</h1>
           <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-            Comprehensive programs from Kindergarten to Secondary School following the Kenyan curriculum.
+            Comprehensive programs from Pre-Primary school to Senior School following the Kenyan curriculum.
           </p>
         </div>
       </section>
@@ -78,7 +78,7 @@ const AcademicsPage = () => {
           <h2 className="font-heading text-3xl font-bold text-foreground mb-6">Our Curriculum</h2>
           <p className="text-muted-foreground leading-relaxed">
             AL-IHSAN SCHOOLS follows the Kenyan Competency-Based Curriculum (CBC) for primary and junior secondary,
-            and the national secondary curriculum. Our academic programs are enriched with Islamic education,
+            and the national senior secondary curriculum. Our academic programs are enriched with Islamic education,
             ensuring a holistic approach to learning that develops both the mind and character.
           </p>
         </div>

@@ -25,7 +25,7 @@ const AboutPage = () => {
             Garissa, Kenya, our institution has grown to become one of the most trusted schools in the region.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            From humble beginnings, we have expanded our programs to cover Kindergarten through Secondary School,
+            From humble beginnings, we have expanded our programs to cover Pre-primary through Senior School,
             alongside a comprehensive Islamic education curriculum. Our commitment to excellence continues to
             guide us as we prepare students for success in this life and the hereafter.
           </p>
@@ -88,8 +88,11 @@ const AboutPage = () => {
               Our role is to provide the knowledge, discipline, and moral guidance that will help them
               unlock that potential. We are committed to nurturing well-rounded individuals who will
               be leaders in their communities and ambassadors of excellence and faith."
+             
             </blockquote>
+              
             <p className="mt-4 font-semibold text-foreground">— The Managing Director, AL-IHSAN SCHOOLS</p>
+            <p className="mt-4 font-semibold text-foreground"> MR. ABDIRIZAK HAWADLE.</p>
           </div>
         </div>
       </section>

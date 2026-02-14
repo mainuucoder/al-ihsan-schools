@@ -15,7 +15,7 @@ const Footer = () => {
               <span className="font-heading text-xl font-bold">AL-IHSAN SCHOOLS</span>
             </div>
             <p className="text-sm italic text-primary-foreground/80 mb-4">
-              "THE HARDER WE WORK THE SMARTER"
+              "THE HARDER WE WORK THE SMARTER WE GET"
             </p>
             <p className="text-sm text-primary-foreground/70">
               Nurturing Excellence in Academic and Islamic Education since establishment in Garissa, Kenya.
@@ -47,10 +47,9 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">Programs</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li>Kindergarten</li>
+              <li>Pre-primary school</li>
               <li>Primary School</li>
               <li>Junior Secondary School</li>
-              <li>Secondary School</li>
               <li>Quran & Islamic Studies</li>
             </ul>
           </div>
@@ -65,11 +64,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 shrink-0" />
-                <span>+254 700 000 000</span>
+                <span>+254 721903982</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 shrink-0" />
-                <span>info@alihsanschools.ac.ke</span>
+                <span>Alihsanschools2022@gmail.com</span>
               </li>
             </ul>
           </div>

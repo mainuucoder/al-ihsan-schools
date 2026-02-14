@@ -1,179 +1,185 @@
 import { useState } from "react";
-import { X, ZoomIn } from "lucide-react";
+import { X, ZoomIn, Image as ImageIcon } from "lucide-react";
 
 const categories = ["All", "Campus", "Islamic Classes", "Events", "Activities"];
 
-// School building photos - replace these URLs with your actual school images
-const schoolBuildingPhotos = [
-  {
-    url: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "School Main Building - Front View",
-    description: "The iconic entrance of AL-IHSAN SCHOOLS welcoming students every morning"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "School Main Building - Aerial View",
-    description: "A breathtaking aerial view of our campus showcasing the beautiful architecture"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Administrative Block",
-    description: "Where our dedicated staff work to ensure smooth school operations"
-  }
-];
+// Use placeholder images from Unsplash that definitely exist
+const placeholderImages = {
+  campus: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  islamic: "https://images.unsplash.com/photo-1599508709491-45fc4b822041?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  events: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  activities: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+};
 
-// Islamic classes photos
-const islamicClassesPhotos = [
-  {
-    url: "https://images.unsplash.com/photo-1599508709491-45fc4b822041?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Quran Recitation Class",
-    description: "Students learning proper Quranic recitation with Tajweed"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1584470297333-af41e5cff293?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Tajweed Sessions",
-    description: "Specialized instruction in the rules of Quranic pronunciation"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1609592786577-3a8d809a4b90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Islamic Studies",
-    description: "Comprehensive Islamic education including Fiqh, Seerah, and Aqeedah"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1589825746036-2cd9f91d6d2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Hifdh Program",
-    description: "Dedicated students memorizing the Holy Quran"
-  }
-];
-
-// Campus photos
-const campusPhotos = [
-  {
-    url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Science Laboratory",
-    description: "Fully equipped modern science lab for hands-on learning"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Library & Reading Room",
-    description: "Quiet study space with an extensive collection of books"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Computer Lab",
-    description: "Modern computer facilities for digital literacy"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "School Playground",
-    description: "Safe and spacious area for recreational activities"
-  }
-];
-
-// Events photos
-const eventsPhotos = [
-  {
-    url: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Annual Sports Day",
-    description: "Students competing in various athletic events"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Cultural Day Celebrations",
-    description: "Students showcasing diverse cultural traditions"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1520857014576-2c222b2d4e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Graduation Ceremony",
-    description: "Celebrating student achievements and milestones"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Award Ceremony",
-    description: "Recognizing excellence in academics and extracurricular activities"
-  }
-];
-
-// Activities photos
-const activitiesPhotos = [
-  {
-    url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Outdoor Activities",
-    description: "Students enjoying outdoor educational activities"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Classroom Learning",
-    description: "Interactive classroom sessions with qualified teachers"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Group Study",
-    description: "Collaborative learning environment"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1503676260728-517c89092db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    title: "Art Class",
-    description: "Creative expression through various art forms"
-  }
-];
-
-// Combine all photos with their categories
+// Gallery items with placeholder images (replace URLs with your local images when available)
 const galleryItems = [
   // School Building Photos (Campus category)
-  ...schoolBuildingPhotos.map((photo, index) => ({
-    title: photo.title,
-    category: "Campus",
+  { 
+    id: "campus-building-1",
+    title: "School Main Building - Front View", 
+    category: "Campus", 
     color: "from-primary to-emerald-dark",
-    image: photo.url,
-    description: photo.description,
-    id: `campus-building-${index}`
-  })),
+    image: placeholderImages.campus,
+    description: "The iconic entrance of AL-IHSAN SCHOOLS welcoming students every morning"
+  },
+  { 
+    id: "campus-building-2",
+    title: "School Main Building - Aerial View", 
+    category: "Campus", 
+    color: "from-primary to-emerald-dark",
+    image: placeholderImages.campus,
+    description: "A breathtaking aerial view of our campus showcasing the beautiful architecture"
+  },
+  { 
+    id: "campus-building-3",
+    title: "Administrative Block", 
+    category: "Campus", 
+    color: "from-primary to-emerald-dark",
+    image: placeholderImages.campus,
+    description: "Where our dedicated staff work to ensure smooth school operations"
+  },
   
   // Islamic Classes Photos
-  ...islamicClassesPhotos.map((photo, index) => ({
-    title: photo.title,
-    category: "Islamic Classes",
+  { 
+    id: "islamic-1",
+    title: "Quran Recitation Class", 
+    category: "Islamic Classes", 
     color: "from-gold-dark to-gold",
-    image: photo.url,
-    description: photo.description,
-    id: `islamic-${index}`
-  })),
+    image: placeholderImages.islamic,
+    description: "Students learning proper Quranic recitation with Tajweed"
+  },
+  { 
+    id: "islamic-2",
+    title: "Tajweed Sessions", 
+    category: "Islamic Classes", 
+    color: "from-gold-dark to-gold",
+    image: placeholderImages.islamic,
+    description: "Specialized instruction in the rules of Quranic pronunciation"
+  },
+  { 
+    id: "islamic-3",
+    title: "Islamic Studies", 
+    category: "Islamic Classes", 
+    color: "from-gold-dark to-gold",
+    image: placeholderImages.islamic,
+    description: "Comprehensive Islamic education including Fiqh, Seerah, and Aqeedah"
+  },
+  { 
+    id: "islamic-4",
+    title: "Hifdh Program", 
+    category: "Islamic Classes", 
+    color: "from-gold-dark to-gold",
+    image: placeholderImages.islamic,
+    description: "Dedicated students memorizing the Holy Quran"
+  },
   
   // Campus Photos (other than building)
-  ...campusPhotos.map((photo, index) => ({
-    title: photo.title,
-    category: "Campus",
+  { 
+    id: "campus-1",
+    title: "Science Laboratory", 
+    category: "Campus", 
     color: "from-primary to-emerald-dark",
-    image: photo.url,
-    description: photo.description,
-    id: `campus-${index}`
-  })),
+    image: placeholderImages.campus,
+    description: "Fully equipped modern science lab for hands-on learning"
+  },
+  { 
+    id: "campus-2",
+    title: "Library & Reading Room", 
+    category: "Campus", 
+    color: "from-primary to-emerald-dark",
+    image: placeholderImages.campus,
+    description: "Quiet study space with an extensive collection of books"
+  },
+  { 
+    id: "campus-3",
+    title: "Computer Lab", 
+    category: "Campus", 
+    color: "from-primary to-emerald-dark",
+    image: placeholderImages.campus,
+    description: "Modern computer facilities for digital literacy"
+  },
+  { 
+    id: "campus-4",
+    title: "School Playground", 
+    category: "Campus", 
+    color: "from-primary to-emerald-dark",
+    image: placeholderImages.campus,
+    description: "Safe and spacious area for recreational activities"
+  },
   
   // Events Photos
-  ...eventsPhotos.map((photo, index) => ({
-    title: photo.title,
-    category: "Events",
+  { 
+    id: "event-1",
+    title: "Annual Sports Day", 
+    category: "Events", 
     color: "from-secondary to-gold",
-    image: photo.url,
-    description: photo.description,
-    id: `event-${index}`
-  })),
+    image: placeholderImages.events,
+    description: "Students competing in various athletic events"
+  },
+  { 
+    id: "event-2",
+    title: "Cultural Day Celebrations", 
+    category: "Events", 
+    color: "from-secondary to-gold",
+    image: placeholderImages.events,
+    description: "Students showcasing diverse cultural traditions"
+  },
+  { 
+    id: "event-3",
+    title: "Graduation Ceremony", 
+    category: "Events", 
+    color: "from-secondary to-gold",
+    image: placeholderImages.events,
+    description: "Celebrating student achievements and milestones"
+  },
+  { 
+    id: "event-4",
+    title: "Award Ceremony", 
+    category: "Events", 
+    color: "from-secondary to-gold",
+    image: placeholderImages.events,
+    description: "Recognizing excellence in academics and extracurricular activities"
+  },
   
   // Activities Photos
-  ...activitiesPhotos.map((photo, index) => ({
-    title: photo.title,
-    category: "Activities",
+  { 
+    id: "activity-1",
+    title: "Outdoor Activities", 
+    category: "Activities", 
     color: "from-primary to-emerald-dark",
-    image: photo.url,
-    description: photo.description,
-    id: `activity-${index}`
-  }))
+    image: placeholderImages.activities,
+    description: "Students enjoying outdoor educational activities"
+  },
+  { 
+    id: "activity-2",
+    title: "Classroom Learning", 
+    category: "Activities", 
+    color: "from-primary to-emerald-dark",
+    image: placeholderImages.activities,
+    description: "Interactive classroom sessions with qualified teachers"
+  },
+  { 
+    id: "activity-3",
+    title: "Group Study", 
+    category: "Activities", 
+    color: "from-primary to-emerald-dark",
+    image: placeholderImages.activities,
+    description: "Collaborative learning environment"
+  },
+  { 
+    id: "activity-4",
+    title: "Art Class", 
+    category: "Activities", 
+    color: "from-primary to-emerald-dark",
+    image: placeholderImages.activities,
+    description: "Creative expression through various art forms"
+  }
 ];
 
 const GalleryPage = () => {
   const [active, setActive] = useState("All");
   const [selectedImage, setSelectedImage] = useState<null | typeof galleryItems[0]>(null);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   
   const filtered = active === "All" ? galleryItems : galleryItems.filter((g) => g.category === active);
 
@@ -183,6 +189,10 @@ const GalleryPage = () => {
 
   const closeModal = () => {
     setSelectedImage(null);
+  };
+
+  const handleImageError = (id: string) => {
+    setImageErrors(prev => ({ ...prev, [id]: true }));
   };
 
   return (
@@ -219,18 +229,27 @@ const GalleryPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filtered.map((item, i) => (
               <div
-                key={item.id || i}
+                key={item.id}
                 onClick={() => handleImageClick(item)}
                 className="aspect-[4/3] rounded-xl overflow-hidden relative group cursor-pointer animate-fade-in-up hover:scale-105 transition-all duration-300"
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
-                {/* Image */}
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                />
+                {/* Image with error handling */}
+                {!imageErrors[item.id] ? (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                    onError={() => handleImageError(item.id)}
+                  />
+                ) : (
+                  // Fallback gradient if image fails to load
+                  <div className={`w-full h-full bg-gradient-to-br ${item.color} flex flex-col items-center justify-center p-4`}>
+                    <ImageIcon className="w-12 h-12 text-white/50 mb-2" />
+                    <span className="text-white text-center text-sm">{item.title}</span>
+                  </div>
+                )}
                 
                 {/* Gradient Overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -252,6 +271,34 @@ const GalleryPage = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Image Upload Instructions */}
+          <div className="mt-12 p-6 bg-muted rounded-lg border border-border">
+            <h3 className="font-heading text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+              <ImageIcon className="w-5 h-5 text-primary" />
+              Add Your Own Images
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              To add your actual school photos, create a <code className="bg-background px-2 py-1 rounded">src/assets/gallery/</code> folder and add your images with these names:
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+              <div className="bg-background p-2 rounded">school-front.jpg</div>
+              <div className="bg-background p-2 rounded">school-aerial.jpg</div>
+              <div className="bg-background p-2 rounded">school-admin.jpg</div>
+              <div className="bg-background p-2 rounded">quran-class.jpg</div>
+              <div className="bg-background p-2 rounded">tajweed-session.jpg</div>
+              <div className="bg-background p-2 rounded">islamic-studies.jpg</div>
+              <div className="bg-background p-2 rounded">hifdh-program.jpg</div>
+              <div className="bg-background p-2 rounded">science-lab.jpg</div>
+              <div className="bg-background p-2 rounded">library.jpg</div>
+              <div className="bg-background p-2 rounded">computer-lab.jpg</div>
+              <div className="bg-background p-2 rounded">playground.jpg</div>
+              <div className="bg-background p-2 rounded">sports-day.jpg</div>
+            </div>
+            <p className="text-muted-foreground mt-4 text-sm">
+              Then update the import statements at the top of this file.
+            </p>
           </div>
 
           <p className="text-center text-muted-foreground mt-10 text-sm">
@@ -278,12 +325,20 @@ const GalleryPage = () => {
             </button>
             
             <div className="bg-card rounded-xl overflow-hidden">
-              <div className="relative h-[70vh]">
-                <img
-                  src={selectedImage.image}
-                  alt={selectedImage.title}
-                  className="w-full h-full object-contain"
-                />
+              <div className="relative h-[70vh] bg-black/90">
+                {!imageErrors[selectedImage.id] ? (
+                  <img
+                    src={selectedImage.image}
+                    alt={selectedImage.title}
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <div className={`w-full h-full bg-gradient-to-br ${selectedImage.color} flex flex-col items-center justify-center`}>
+                    <ImageIcon className="w-24 h-24 text-white/30 mb-4" />
+                    <h3 className="text-white text-2xl font-bold mb-2">{selectedImage.title}</h3>
+                    <p className="text-white/60">Image failed to load</p>
+                  </div>
+                )}
               </div>
               
               <div className="p-6 bg-card border-t border-border">

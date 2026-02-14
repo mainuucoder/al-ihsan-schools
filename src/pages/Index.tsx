@@ -385,6 +385,7 @@ const HomePage = () => {
                 <div className="border-l-4 border-primary pl-4">
                   <p className="font-semibold text-foreground">The Managing Director</p>
                   <p className="text-sm text-muted-foreground">AL-IHSAN Schools, Garissa</p>
+                  <p className="text-sm text-muted-foreground">MR. ABDIRIZAK HAWADLE</p>
                 </div>
                 <Link
                   to="/about"
