@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { GraduationCap, BookOpen, Users, ShieldCheck, Quote, Star, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-school.jpg";
+import schoolLogo from "@/assets/logo.jpg"; // Add your logo here
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const highlights = [
@@ -8,13 +9,6 @@ const highlights = [
   { icon: BookOpen, title: "Islamic Education", desc: "Quran, Islamic Studies, Tajweed, and moral training integrated into learning." },
   { icon: Users, title: "Qualified Teachers", desc: "Dedicated and experienced educators committed to every student's growth." },
   { icon: ShieldCheck, title: "Safe Environment", desc: "A supportive and secure campus where students thrive." },
-];
-
-const stats = [
-  { value: "1000+", label: "Students Enrolled" },
-  { value: "50+", label: "Qualified Teachers" },
-  { value: "15+", label: "Years of Excellence" },
-  { value: "98%", label: "Success Rate" },
 ];
 
 function AnimatedSection({ children, className = "", animation = "animate-fade-in-up" }: {
@@ -40,6 +34,46 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-dark/90 via-primary/80 to-primary/60" />
         </div>
         <div className="relative container mx-auto px-4 py-20 md:py-32 text-primary-foreground">
+          {/* Logo Section */}
+          <div className="mb-8 animate-fade-in-up">
+            <div className="flex items-center gap-4 mb-4">
+              {/* School Logo - Fixed to fit properly */}
+              <div className="relative group flex-shrink-0">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-sm border-2 border-gold-light/30 flex items-center justify-center overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300">
+                  <img 
+                    src={schoolLogo} 
+                    alt="AL-IHSAN SCHOOLS Logo" 
+                    className="w-full h-full object-contain p-2" // Changed to object-contain with padding
+                    onError={(e) => {
+                      // Fallback if logo doesn't exist
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        const fallback = document.createElement('div');
+                        fallback.className = 'text-3xl font-bold text-gold-light';
+                        fallback.textContent = 'AIS';
+                        parent.appendChild(fallback);
+                      }
+                    }}
+                  />
+                </div>
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 rounded-full bg-gold-light/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+              </div>
+              
+              {/* School Name with Logo Text */}
+              <div className="animate-slide-in-right">
+                <h2 className="font-heading text-5xl md:text-3xl font-bold text-primary-foreground">
+                  AL-IHSAN SCHOOLS
+                </h2>
+                <p className="text-sm text-primary-foreground/70">
+                  Garissa, Kenya
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Animated Motto with Horizontal Movement */}
           <div className="relative mb-4 overflow-hidden">
             <p className="text-sm md:text-base font-medium tracking-widest uppercase mb-4 text-gold-light">
@@ -133,6 +167,48 @@ const HomePage = () => {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/40 flex items-start justify-center p-1.5">
             <div className="w-1.5 h-3 rounded-full bg-primary-foreground/60 animate-[horizontal-pulse_1s_ease-in-out_infinite]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Logo Feature Section */}
+      <section className="section-padding bg-background border-y border-border">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Logo with details - Fixed to fit properly */}
+            <AnimatedSection className="flex items-center gap-6" animation="animate-fade-in-left">
+              <div className="relative group flex-shrink-0">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl green-gradient flex items-center justify-center overflow-hidden shadow-xl">
+                  <img 
+                    src={schoolLogo} 
+                    alt="AL-IHSAN SCHOOLS Logo" 
+                    className="w-full h-full object-contain p-4" // Changed to object-contain with padding
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        const fallback = document.createElement('div');
+                        fallback.className = 'text-4xl font-bold text-primary-foreground';
+                        fallback.textContent = 'AIS';
+                        parent.appendChild(fallback);
+                      }
+                    }}
+                  />
+                </div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-gold rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity duration-300 -z-10" />
+              </div>
+              
+              <div>
+                <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  AL-IHSAN SCHOOLS
+                </h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-sm text-muted-foreground">Accredited by Ministry of Education, Kenya</span>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
