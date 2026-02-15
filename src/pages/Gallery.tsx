@@ -1,179 +1,113 @@
 import { useState } from "react";
 import { X, ZoomIn, Image as ImageIcon } from "lucide-react";
 
-const categories = ["All", "Campus", "Islamic Classes", "Events", "Activities"];
+// Import local images from assets/gallery folder
+import schoolFront from "@/assets/school-front.jpg";
+import quranClass from "@/assets/hero----school.jpg";
+import scienceLab from "@/assets/grad.jpg";
+import sportsDay from "@/assets/sports.jpg";
+import outdoorActivities from "@/assets/hero-school.jpg";
+import staff from "@/assets/staff.jpg";
+import staff2 from "@/assets/staff2.jpg";
+import exp3 from "@/assets/exp3.jpg";
+import exp1 from "@/assets/exp1.jpg";
+import exp2 from "@/assets/exp2.jpg";
 
-// Use placeholder images from Unsplash that definitely exist
-const placeholderImages = {
-  campus: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  islamic: "https://images.unsplash.com/photo-1599508709491-45fc4b822041?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  events: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  activities: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-};
+const categories = ["All", "Main school", "Islamic Classes", "Events", "Activities","school-staff", "Lab experiments"];
 
-// Gallery items with placeholder images (replace URLs with your local images when available)
+// Gallery items with just 5 images
 const galleryItems = [
-  // School Building Photos (Campus category)
+  // School Building Photo (Campus category)
   { 
-    id: "campus-building-1",
+    id: "main school-building-1",
     title: "School Main Building - Front View", 
-    category: "Campus", 
+    category: "Main school", 
     color: "from-primary to-emerald-dark",
-    image: placeholderImages.campus,
+    image: schoolFront,
     description: "The iconic entrance of AL-IHSAN SCHOOLS welcoming students every morning"
   },
-  { 
-    id: "campus-building-2",
-    title: "School Main Building - Aerial View", 
-    category: "Campus", 
-    color: "from-primary to-emerald-dark",
-    image: placeholderImages.campus,
-    description: "A breathtaking aerial view of our campus showcasing the beautiful architecture"
-  },
-  { 
-    id: "campus-building-3",
-    title: "Administrative Block", 
-    category: "Campus", 
-    color: "from-primary to-emerald-dark",
-    image: placeholderImages.campus,
-    description: "Where our dedicated staff work to ensure smooth school operations"
-  },
   
-  // Islamic Classes Photos
+  // Islamic Classes Photo
   { 
     id: "islamic-1",
     title: "Quran Recitation Class", 
     category: "Islamic Classes", 
     color: "from-gold-dark to-gold",
-    image: placeholderImages.islamic,
+    image: outdoorActivities,
     description: "Students learning proper Quranic recitation with Tajweed"
   },
+  
+  // Campus Photo (other than building)
   { 
-    id: "islamic-2",
-    title: "Tajweed Sessions", 
-    category: "Islamic Classes", 
-    color: "from-gold-dark to-gold",
-    image: placeholderImages.islamic,
-    description: "Specialized instruction in the rules of Quranic pronunciation"
-  },
-  { 
-    id: "islamic-3",
-    title: "Islamic Studies", 
-    category: "Islamic Classes", 
-    color: "from-gold-dark to-gold",
-    image: placeholderImages.islamic,
-    description: "Comprehensive Islamic education including Fiqh, Seerah, and Aqeedah"
-  },
-  { 
-    id: "islamic-4",
-    title: "Hifdh Program", 
-    category: "Islamic Classes", 
-    color: "from-gold-dark to-gold",
-    image: placeholderImages.islamic,
-    description: "Dedicated students memorizing the Holy Quran"
+    id: "mainschool-1",
+    title: "PRE-PRIMARY GRADUATION", 
+    category: "Main school", 
+    color: "from-primary to-emerald-dark",
+    image: scienceLab,
+    description: "A pre-primary grade 2 graduation held on 10th october 2025"
   },
   
-  // Campus Photos (other than building)
-  { 
-    id: "campus-1",
-    title: "Science Laboratory", 
-    category: "Campus", 
-    color: "from-primary to-emerald-dark",
-    image: placeholderImages.campus,
-    description: "Fully equipped modern science lab for hands-on learning"
-  },
-  { 
-    id: "campus-2",
-    title: "Library & Reading Room", 
-    category: "Campus", 
-    color: "from-primary to-emerald-dark",
-    image: placeholderImages.campus,
-    description: "Quiet study space with an extensive collection of books"
-  },
-  { 
-    id: "campus-3",
-    title: "Computer Lab", 
-    category: "Campus", 
-    color: "from-primary to-emerald-dark",
-    image: placeholderImages.campus,
-    description: "Modern computer facilities for digital literacy"
-  },
-  { 
-    id: "campus-4",
-    title: "School Playground", 
-    category: "Campus", 
-    color: "from-primary to-emerald-dark",
-    image: placeholderImages.campus,
-    description: "Safe and spacious area for recreational activities"
-  },
-  
-  // Events Photos
+  // Events Photo
   { 
     id: "event-1",
     title: "Annual Sports Day", 
     category: "Events", 
     color: "from-secondary to-gold",
-    image: placeholderImages.events,
+    image: sportsDay,
     description: "Students competing in various athletic events"
   },
-  { 
-    id: "event-2",
-    title: "Cultural Day Celebrations", 
-    category: "Events", 
-    color: "from-secondary to-gold",
-    image: placeholderImages.events,
-    description: "Students showcasing diverse cultural traditions"
-  },
-  { 
-    id: "event-3",
-    title: "Graduation Ceremony", 
-    category: "Events", 
-    color: "from-secondary to-gold",
-    image: placeholderImages.events,
-    description: "Celebrating student achievements and milestones"
-  },
-  { 
-    id: "event-4",
-    title: "Award Ceremony", 
-    category: "Events", 
-    color: "from-secondary to-gold",
-    image: placeholderImages.events,
-    description: "Recognizing excellence in academics and extracurricular activities"
-  },
   
-  // Activities Photos
+  // Activities Photo
   { 
     id: "activity-1",
     title: "Outdoor Activities", 
     category: "Activities", 
     color: "from-primary to-emerald-dark",
-    image: placeholderImages.activities,
-    description: "Students enjoying outdoor educational activities"
+    image: quranClass,
+    description: "Students visite the Garissa County Assembly"
   },
   { 
-    id: "activity-2",
-    title: "Classroom Learning", 
-    category: "Activities", 
+    id: "Lab Experiments",
+    title: "Lab Experiments", 
+    category: "Lab Experiments", 
     color: "from-primary to-emerald-dark",
-    image: placeholderImages.activities,
-    description: "Interactive classroom sessions with qualified teachers"
+    image: exp3,
+    description: "Students participating in a science experiment "
+  },
+  
+  { 
+    id: "activity-1",
+    title: "Lab Experiments", 
+    category: "Lab Experiments", 
+    color: "from-primary to-emerald-dark",
+    image: exp1,
+    description: "Students participating in a science experiment "
   },
   { 
-    id: "activity-3",
-    title: "Group Study", 
-    category: "Activities", 
+    id: "activity-1",
+    title: "Lab Experiments", 
+    category: "Lab Experiments", 
     color: "from-primary to-emerald-dark",
-    image: placeholderImages.activities,
-    description: "Collaborative learning environment"
+    image: exp2,
+    description: "Students participating in a science experiment "
+  },
+  
+  { 
+    id: "school-staff",
+    title: "School Staff Meeting", 
+    category: "school-staff", 
+    color: "from-primary to-emerald-dark",
+    image: staff2,
+    description: "School staff meeting in the main office"
   },
   { 
-    id: "activity-4",
-    title: "Art Class", 
-    category: "Activities", 
+    id: "school-staff",
+    title: "School Staff Meeting", 
+    category: "school-staff", 
     color: "from-primary to-emerald-dark",
-    image: placeholderImages.activities,
-    description: "Creative expression through various art forms"
-  }
+    image: staff,
+    description: "School staff meeting in the main office"
+  },
 ];
 
 const GalleryPage = () => {
@@ -225,8 +159,8 @@ const GalleryPage = () => {
             ))}
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {/* Grid - 5 images */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {filtered.map((item, i) => (
               <div
                 key={item.id}
@@ -248,6 +182,7 @@ const GalleryPage = () => {
                   <div className={`w-full h-full bg-gradient-to-br ${item.color} flex flex-col items-center justify-center p-4`}>
                     <ImageIcon className="w-12 h-12 text-white/50 mb-2" />
                     <span className="text-white text-center text-sm">{item.title}</span>
+                    <span className="text-white/50 text-xs mt-2">Image not found</span>
                   </div>
                 )}
                 
@@ -273,36 +208,54 @@ const GalleryPage = () => {
             ))}
           </div>
 
-          {/* Image Upload Instructions */}
+          {/* Image Upload Instructions
           <div className="mt-12 p-6 bg-muted rounded-lg border border-border">
             <h3 className="font-heading text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
               <ImageIcon className="w-5 h-5 text-primary" />
               Add Your Own Images
             </h3>
             <p className="text-muted-foreground mb-4">
-              To add your actual school photos, create a <code className="bg-background px-2 py-1 rounded">src/assets/gallery/</code> folder and add your images with these names:
+              To add your actual school photos, create a <code className="bg-background px-2 py-1 rounded">src/assets/gallery/</code> folder and add these 5 images:
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-              <div className="bg-background p-2 rounded">school-front.jpg</div>
-              <div className="bg-background p-2 rounded">school-aerial.jpg</div>
-              <div className="bg-background p-2 rounded">school-admin.jpg</div>
-              <div className="bg-background p-2 rounded">quran-class.jpg</div>
-              <div className="bg-background p-2 rounded">tajweed-session.jpg</div>
-              <div className="bg-background p-2 rounded">islamic-studies.jpg</div>
-              <div className="bg-background p-2 rounded">hifdh-program.jpg</div>
-              <div className="bg-background p-2 rounded">science-lab.jpg</div>
-              <div className="bg-background p-2 rounded">library.jpg</div>
-              <div className="bg-background p-2 rounded">computer-lab.jpg</div>
-              <div className="bg-background p-2 rounded">playground.jpg</div>
-              <div className="bg-background p-2 rounded">sports-day.jpg</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-sm">
+              <div className="bg-background p-2 rounded border border-border text-center">
+                <div className="font-semibold text-primary">school-front.jpg</div>
+                <div className="text-xs text-muted-foreground mt-1">Main Building</div>
+              </div>
+              <div className="bg-background p-2 rounded border border-border text-center">
+                <div className="font-semibold text-primary">quran-class.jpg</div>
+                <div className="text-xs text-muted-foreground mt-1">Quran Recitation</div>
+              </div>
+              <div className="bg-background p-2 rounded border border-border text-center">
+                <div className="font-semibold text-primary">science-lab.jpg</div>
+                <div className="text-xs text-muted-foreground mt-1">Science Lab</div>
+              </div>
+              <div className="bg-background p-2 rounded border border-border text-center">
+                <div className="font-semibold text-primary">sports-day.jpg</div>
+                <div className="text-xs text-muted-foreground mt-1">Sports Day</div>
+              </div>
+              <div className="bg-background p-2 rounded border border-border text-center">
+                <div className="font-semibold text-primary">outdoor-activities.jpg</div>
+                <div className="text-xs text-muted-foreground mt-1">Outdoor Activities</div>
+              </div>
             </div>
-            <p className="text-muted-foreground mt-4 text-sm">
-              Then update the import statements at the top of this file.
-            </p>
-          </div>
+            <div className="mt-4 p-4 bg-primary/5 rounded-lg">
+              <p className="text-sm text-foreground font-medium mb-2">📁 Folder Structure Required:</p>
+              <code className="text-xs bg-background p-2 rounded block">
+                src/<br/>
+                └── assets/<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;└── gallery/<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── school-front.jpg<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── quran-class.jpg<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── science-lab.jpg<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── sports-day.jpg<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── outdoor-activities.jpg
+              </code>
+            </div>
+          </div> */}
 
           <p className="text-center text-muted-foreground mt-10 text-sm">
-            More photos coming soon. Contact us to schedule a campus visit!
+            More photos coming soon. Contact us to schedule a School visit !!!!
           </p>
         </div>
       </section>
@@ -314,7 +267,7 @@ const GalleryPage = () => {
           onClick={closeModal}
         >
           <div
-            className="relative max-w-6xl w-full max-h-[90vh] animate-scale-in"
+            className="relative max-w-4xl w-full max-h-[90vh] animate-scale-in"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -325,7 +278,7 @@ const GalleryPage = () => {
             </button>
             
             <div className="bg-card rounded-xl overflow-hidden">
-              <div className="relative h-[70vh] bg-black/90">
+              <div className="relative h-[60vh] bg-black/90">
                 {!imageErrors[selectedImage.id] ? (
                   <img
                     src={selectedImage.image}
@@ -337,6 +290,7 @@ const GalleryPage = () => {
                     <ImageIcon className="w-24 h-24 text-white/30 mb-4" />
                     <h3 className="text-white text-2xl font-bold mb-2">{selectedImage.title}</h3>
                     <p className="text-white/60">Image failed to load</p>
+                    <p className="text-white/40 text-sm mt-2">Please check if the file exists in assets/gallery/</p>
                   </div>
                 )}
               </div>
