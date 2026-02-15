@@ -12,7 +12,7 @@ import termDatesPdf from "@/assets/pdfs/term-dates.pdf";
 import feeStructurePdf from "@/assets/pdfs/fee-structure.pdf";
 import academicRequirementsPdf from "@/assets/pdfs/academic-requirements.pdf";
 import jssRequirementsPdf from "@/assets/pdfs/jss-requirements.pdf";
-// import primaryRequirementsPdf from "@/assets/pdfs/primary-requirements.pdf";
+import primaryRequirementsPdf from "@/assets/pdfs/primary-requirements.pdf";
 
 const news = [
   // Latest News - Ramadan 2026 with Image
@@ -156,18 +156,18 @@ const documentUploads = [
     pageCount: 10,
     lastUpdated: "January 15, 2026"
   },
-  // {
-  //   id: 5,
-  //   title: "Primary Level Requirements",
-  //   icon: GraduationCap,
-  //   image: primaryRequirementsImage,
-  //   pdfFile: primaryRequirementsPdf,
-  //   description: "Primary school requirements including curriculum overview, assessment criteria, and learning outcomes.",
-  //   category: "Primary",
-  //   fileSize: "2.7 MB",
-  //   pageCount: 14,
-  //   lastUpdated: "January 15, 2026"
-  // }
+  {
+    id: 5,
+    title: "Primary Level Requirements",
+    icon: GraduationCap,
+    image: primaryRequirementsImage,
+    pdfFile: primaryRequirementsPdf,
+    description: "Primary school requirements including curriculum overview, assessment criteria, and learning outcomes.",
+    category: "Primary",
+    fileSize: "2.7 MB",
+    pageCount: 14,
+    lastUpdated: "January 15, 2026"
+  }
 ];
 
 const NewsPage = () => {
@@ -421,32 +421,7 @@ const NewsPage = () => {
             ))}
           </div>
           
-          {/* PDF Instructions */}
-          <div className="mt-8 p-4 md:p-6 bg-primary/5 rounded-xl border border-dashed border-primary/30">
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <FileDown className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-              </div>
-              <div>
-                <h4 className="text-sm md:text-base font-semibold text-foreground mb-1">How to Add Your PDF Files</h4>
-                <p className="text-xs md:text-sm text-muted-foreground mb-2">
-                  To make documents downloadable, add your PDF files to the <code className="bg-background px-1 py-0.5 rounded">src/assets/pdfs/</code> folder and update the imports:
-                </p>
-                <div className="bg-background p-3 rounded-lg font-mono text-[10px] md:text-xs text-muted-foreground overflow-x-auto">
-                  <p>import termDatesPdf from "@/assets/pdfs/term-dates-2026.pdf";</p>
-                  <p>import feeStructurePdf from "@/assets/pdfs/fee-structure-2026.pdf";</p>
-                  <p>import academicRequirementsPdf from "@/assets/pdfs/academic-requirements-2026.pdf";</p>
-                  <p>import jssRequirementsPdf from "@/assets/pdfs/jss-requirements-2026.pdf";</p>
-                  <p>import primaryRequirementsPdf from "@/assets/pdfs/primary-requirements-2026.pdf";</p>
-                </div>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded-full">✓ PDFs will be downloadable</span>
-                  <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-1 rounded-full">✓ Preview with Eye icon</span>
-                  <span className="text-[10px] bg-purple-100 text-purple-700 px-2 py-1 rounded-full">✓ Download progress bar</span>
-                </div>
-              </div>
-            </div>
-          </div>
+      
         </div>
       </section>
 
