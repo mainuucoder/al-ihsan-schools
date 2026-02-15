@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { GraduationCap, BookOpen, Users, ShieldCheck, Quote, Star, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-school.jpg";
@@ -24,8 +25,10 @@ function AnimatedSection({ children, className = "", animation = "animate-fade-i
   );
 }
 
+
 const HomePage = () => {
   return (
+    
     <div className="overflow-hidden">
       {/* Hero */}
       <section className="relative min-h-[100vh] sm:min-h-[85vh] flex items-center overflow-hidden">

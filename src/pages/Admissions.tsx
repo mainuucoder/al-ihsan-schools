@@ -36,10 +36,10 @@ const AdmissionsPage = () => {
     dateOfBirth: "",
     placeOfBirth: "",
     gender: "",
-    nationality: "Kenyan",
-    religion: "Muslim",
+    nationality: "",
+    religion: "",
     homeAddress: "",
-    city: "Garissa",
+    city: "",
     postalCode: "",
     
     // Contact Information
@@ -60,10 +60,10 @@ const AdmissionsPage = () => {
     
     // Grade Applying For
     gradeApplying: "",
-    programChoice: "Regular",
+    programChoice: "",
     
     // Languages
-    homeLanguage: "Somali",
+    homeLanguage: "",
     otherLanguages: "",
     
     // Special Needs
@@ -92,7 +92,7 @@ const AdmissionsPage = () => {
     motherAddress: "",
     
     // Marital Status
-    parentsMaritalStatus: "Married",
+    parentsMaritalStatus: "",
     legalGuardian: "",
     
     // Emergency Contact
@@ -298,11 +298,12 @@ const AdmissionsPage = () => {
         // School Header with logo
         doc.setFontSize(22);
         doc.setTextColor(0, 100, 0);
-        doc.text("AL-IHSAN SCHOOLS TOWNSHIP", 105, 22, { align: "center" });
+        doc.text("AL-IHSAN SCHOOLS TOWNSHIP", 105, 20, { align: "center" });
         
         doc.setFontSize(12);
         doc.setTextColor(100, 100, 100);
-        doc.text("Garissa, Kenya", 105, 30, { align: "center" });
+        doc.text("PO BOX 944-70100 GARISSA  KENYA", 105, 28, { align: "center" });
+        
         
         doc.setFontSize(11);
         doc.setTextColor(255, 191, 0);
@@ -327,10 +328,11 @@ const AdmissionsPage = () => {
         doc.setFontSize(22);
         doc.setTextColor(0, 100, 0);
         doc.text("AL-IHSAN SCHOOLS TOWNSHIP", 105, 20, { align: "center" });
-        
+
         doc.setFontSize(12);
         doc.setTextColor(100, 100, 100);
-        doc.text("Garissa, Kenya", 105, 28, { align: "center" });
+        doc.text("PO BOX 944-70100 GARISSA  KENYA", 105, 28, { align: "center" });
+        
         
         doc.setFontSize(11);
         doc.setTextColor(255, 191, 0);
@@ -354,9 +356,10 @@ const AdmissionsPage = () => {
       doc.setTextColor(0, 100, 0);
       doc.text("AL-IHSAN SCHOOLS TOWNSHIP", 105, 20, { align: "center" });
       
-      doc.setFontSize(12);
-      doc.setTextColor(100, 100, 100);
-      doc.text("Garissa, Kenya", 105, 28, { align: "center" });
+        doc.setFontSize(12);
+        doc.setTextColor(100, 100, 100);
+        doc.text("PO BOX 944-70100 GARISSA  KENYA", 105, 28, { align: "center" });
+        
       
       doc.setFontSize(11);
       doc.setTextColor(255, 191, 0);
@@ -391,9 +394,11 @@ const AdmissionsPage = () => {
         doc.setTextColor(0, 100, 0);
         doc.text("AL-IHSAN SCHOOLS TOWNSHIP", 105, 20, { align: "center" });
         
+        
+        
         doc.setFontSize(12);
         doc.setTextColor(100, 100, 100);
-        doc.text("Garissa, Kenya", 105, 28, { align: "center" });
+        doc.text("PO BOX 944-70100 GARISSA  KENYA", 105, 28, { align: "center" });
         
         doc.setFontSize(11);
         doc.setTextColor(255, 191, 0);
@@ -431,15 +436,15 @@ const AdmissionsPage = () => {
     
     doc.setFontSize(10);
     doc.setTextColor(80, 80, 80);
-    doc.text(`Full Name: ${studentInfo.firstName || '________________'} ${studentInfo.middleName || ''} ${studentInfo.lastName || '________________'}`, 25, yPos);
+    doc.text(`Full Name: ${studentInfo.firstName || '________________________________'} ${studentInfo.middleName || ''} ${studentInfo.lastName || '____________________________'}`, 25, yPos);
     yPos += lineHeight;
-    doc.text(`Date of Birth: ${studentInfo.dateOfBirth || '______________'} | Gender: ${studentInfo.gender || '______'}`, 25, yPos);
+    doc.text(`Date of Birth: ${studentInfo.dateOfBirth || '______________'} | Gender: ${studentInfo.gender || '_____________________'}`, 25, yPos);
     yPos += lineHeight;
     doc.text(`Place of Birth: ${studentInfo.placeOfBirth || '________________'}`, 25, yPos);
     yPos += lineHeight;
-    doc.text(`Nationality: ${studentInfo.nationality || '_________'} | Religion: ${studentInfo.religion || '______'}`, 25, yPos);
+    doc.text(`Nationality: ${studentInfo.nationality || '_______________________'} | Religion: ${studentInfo.religion || '____________________'}`, 25, yPos);
     yPos += lineHeight;
-    doc.text(`Home Language: ${studentInfo.homeLanguage || '______'} | Other Languages: ${studentInfo.otherLanguages || 'None'}`, 25, yPos);
+    doc.text(`Home Language: ${studentInfo.homeLanguage || '___________'} | Other Languages: ${studentInfo.otherLanguages || '_______________'}`, 25, yPos);
     yPos += lineHeight + 2;
     
     // Contact Information
@@ -482,7 +487,7 @@ const AdmissionsPage = () => {
     
     doc.setFontSize(10);
     doc.setTextColor(80, 80, 80);
-    doc.text(`Grade Applying For: ${studentInfo.gradeApplying || '__________'} | Program: ${studentInfo.programChoice || 'Regular'}`, 25, yPos);
+    doc.text(`Grade Applying For: ${studentInfo.gradeApplying || '__________'}`, 25, yPos);
     yPos += lineHeight + 2;
     
     doc.setFontSize(11);
@@ -610,8 +615,10 @@ const AdmissionsPage = () => {
     doc.setTextColor(80, 80, 80);
     doc.text("I hereby certify that the information provided in this application is true and complete to the best of my knowledge.", 20, yPos);
     yPos += lineHeight;
-    doc.text("I understand that any false or misleading information may result in rejection of this application or dismissal after admission.", 20, yPos);
-    yPos += lineHeight + 4;
+    doc.text("I understand that any false or misleading information may result in rejection of this application or dismissal after", 20, yPos);
+    yPos += lineHeight ;
+    doc.text(" admission.", 20, yPos);
+    yPos += lineHeight ;
     
     // Signature Lines
     doc.setFontSize(11);
@@ -640,10 +647,12 @@ const AdmissionsPage = () => {
     yPos += lineHeight * 2;
     
     // Footer on last page
-    doc.setFontSize(8);
+    doc.setFontSize(10);
     doc.setTextColor(150, 150, 150);
     doc.text("This is an official AL-IHSAN SCHOOLS admission application form. Please submit along with required documents.", 105, 285, { align: "center" });
     
+ 
+
     // Save the PDF with student name in filename
     const studentName = studentInfo.firstName ? 
       `${studentInfo.firstName}_${studentInfo.lastName}`.replace(/\s+/g, '_') : 
@@ -694,7 +703,7 @@ const AdmissionsPage = () => {
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-colors group"
                 >
                   <Download className="w-5 h-5 group-hover:animate-bounce" />
-                  Download Admission Form
+                  Download Blank Admission Form
                 </button>
               </div>
             </div>
